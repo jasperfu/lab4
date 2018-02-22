@@ -113,11 +113,10 @@ functions that have the same name and type.
 
 module type Sequence =
   sig
-    type length = Infinite | Finite of int
-    type info = { name : string; length : length; inventor : string; }
+    type length
+    type info
     val name : string
     val length : length
-    val inventor : string
     val info : info
     val exists : int -> bool
   end;;
@@ -134,6 +133,6 @@ code. You'll just want to replace the trivial module definition
 "struct end" in the code below.
 ......................................................................*)
 
-module SequenceFibonacci = Fibonacci : Sequence;;
-module SequenceInverse = Inverse : Sequence;;
-module SequenceStudyplan = Studyplan : Sequence ;;
+module SequenceFibonacci = (Fibonacci : Sequence);;
+module SequenceInverse = (Inverse : Sequence);;
+module SequenceStudyplan = (Studyplan : Sequence) ;;
