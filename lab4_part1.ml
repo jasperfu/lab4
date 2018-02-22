@@ -73,5 +73,4 @@ let result =  Math.max [(Math.cos Math.pi); (Math.sin Math.pi)] ;;
 Exercise 1C: Redo the computation from above, but use the `local open`
 syntax to write your computation in a more succinct manner.
 ......................................................................*)
-open Math
-let result_local_open = max [cos pi; sin pi] ;;
+let result_local_open = let open Math in max [cos pi; sin pi] ;;
